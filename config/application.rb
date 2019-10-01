@@ -31,5 +31,9 @@ module BlogAssignment
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    #use slim instead of erb
+    config.generators do |g|
+      g.template_engine :slim
+    end
   end
 end
