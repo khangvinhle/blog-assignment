@@ -1,0 +1,11 @@
+- flash.each do |key, value|
+  - if key == 'notice'
+    div [class="alert alert-success fade show text-center"]
+      strong = value
+      button [type='button' data-dismiss='alert' class='close' aria-label="close" ]
+        span [aria-hidden="true" ] &times;
+  - elsif key == 'alert'
+    div [class="alert alert-danger fade show text-center"]
+      strong = value
+      button [type='button' data-dismiss='alert' class='close' aria-label="close" ]
+        span [aria-hidden="true" ] &times;

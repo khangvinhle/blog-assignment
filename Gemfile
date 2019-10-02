@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # use dotenv to load variables from .env file to ENV variables
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -50,3 +52,6 @@ gem 'slim-rails'
 
 # use devise for user authentication
 gem 'devise'
+
+# enable user to authenticate by facebook
+gem 'omniauth-facebook'
