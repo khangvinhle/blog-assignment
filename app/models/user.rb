@@ -8,15 +8,15 @@ class User < ApplicationRecord
 
   def self.new_with_session(params, session)
     super.tap do |user|
-      if session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
+      if session['devise.facebook_data'].present? && session['devise.facebook_data']['extra']['raw_info'].present?
         user.email = session['devise.facebook_data']['extra']['raw_info']['email'] if user.email.blank?
       end
     end
   end
 
   def self.from_omniauth(auth)
-    if where(email: auth.info.email).exists?
-      user = find_by(email: auth.info.email)
+    user = find_by(email: auth.info.email)
+    if user.present?
       user.update(provider: auth.provider, uid: auth.uid)
     else
       user = create do |u|
