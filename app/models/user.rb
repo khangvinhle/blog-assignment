@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   def self.new_with_session(params, session)
     super.tap do |user|
-      if session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
+      if session['devise.facebook_data'].present? && session['devise.facebook_data']['extra']['raw_info'].present?
         user.email = session['devise.facebook_data']['extra']['raw_info']['email'] if user.email.blank?
       end
     end
