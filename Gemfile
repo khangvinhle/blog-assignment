@@ -57,3 +57,6 @@ gem 'devise'
 
 # enable user to authenticate by facebook
 gem 'omniauth-facebook'
+
+# send email using Sendgrid
+gem 'sendgrid-ruby'
