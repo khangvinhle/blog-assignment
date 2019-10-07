@@ -58,8 +58,8 @@ development:
 test:
   <<: *default
   database: blog_assignment_test
-  username: <%= ENV.fetch("PG_USER_NAME") %>
-  password: <%= ENV.fetch("PG_USER_PASSWORD") %>
+  username: <%= Figaro.env.PG_USER_NAME %>
+  password: <%= Figaro.env.PG_USER_PASSWORD %>
   port: 5432
   host: localhost
 # As with config/credentials.yml, you never want to store sensitive information,
@@ -84,5 +84,6 @@ test:
 production:
   <<: *default
   database: blog_assignment_production
+  url: <%= ENV['DATABASE_URL'] %>
 #  username: blog_assignment
 #  password: <%= ENV['BLOG_ASSIGNMENT_DATABASE_PASSWORD'] %>
