@@ -17,7 +17,7 @@ class User < ApplicationRecord
   def self.from_omniauth(auth)
     user = find_by(email: auth.info.email)
     if user.present?
-      user.update(provider: auth.provider, uid: auth.uid)
+      user.update(provider: auth.provider, uid: auth.uid) if user.provider.blank? && user.uid.blank?
     else
       user = create do |u|
         u.provider = auth.provider

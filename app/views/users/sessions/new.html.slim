@@ -1,22 +1,21 @@
-h2.text-center
-  | Log in
-.container
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .form-group
-      = f.label :email
-      br
-      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
-    .form-group
-      = f.label :password
-      br
-      = f.password_field :password, autocomplete: "current-password", class: 'form-control'
-    - if devise_mapping.rememberable?
-      .form-group
-        = f.check_box :remember_me
-        = f.label :remember_me
-    .actions
-      = f.submit "Log in", class: 'btn btn-primary'
-      / = link_to 'Sign in with Facebook', user_facebook_omniauth_authorize_path
-  br
-  .btn-group role='group' aria-label='Basic example'
-    = render "users/shared/links"
+.main.px-4
+  .container
+    .login-content.row.bg-white
+      .login-image.col-sm-12.col-md-6
+        = image_tag("signin-image.jpg",class:'img-fluid mx-auto d-block')
+        br
+        = render "users/shared/links"
+      .login-form.col-sm-12.col-md-6
+        h2.text-center.mt-3.pt-2 Log in
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-group
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email'
+          .form-group
+            = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Password'
+          - if devise_mapping.rememberable?
+            .form-check
+              = f.check_box :remember_me, class: 'form-check-input'
+              = f.label :remember_me, class: 'form-check-label'
+          .form-group
+            = f.submit "Log in", class: 'btn btn-primary btn-block'
+
