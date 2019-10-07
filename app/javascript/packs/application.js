@@ -19,4 +19,4 @@ import 'bootstrap/scss/bootstrap.scss'
 import './bootstrap_custom'
 
 // custom files
-import 'stylesheets/application.scss'
+import './stylesheets/application.scss'

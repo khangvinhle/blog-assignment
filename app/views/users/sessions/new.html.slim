@@ -1,18 +1,21 @@
-.users-sessions-new-view
+.main.px-4
   .container
-    .login-content
-      h2.form-title Log in
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        .form-group
-          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email'
-        .form-group
-          = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Password'
-        - if devise_mapping.rememberable?
-          .form-check
-            = f.check_box :remember_me, class: 'form-check-input'
-            = f.label :remember_me, class: 'form-check-label'
-        .form-group
-          = f.submit "Log in", class: 'form-submit text-dark mb-1 mt-5'
-      .btn-group role='group' aria-label='Basic example'
-      br
+    .login-content.row.bg-white
+      .login-image.col-sm-12.col-md-6
+        = image_tag("signin-image.jpg",class:'img-fluid mx-auto d-block')
+        br
         = render "users/shared/links"
+      .login-form.col-sm-12.col-md-6
+        h2.text-center.mt-3.pt-2 Log in
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-group
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email'
+          .form-group
+            = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Password'
+          - if devise_mapping.rememberable?
+            .form-check
+              = f.check_box :remember_me, class: 'form-check-input'
+              = f.label :remember_me, class: 'form-check-label'
+          .form-group
+            = f.submit "Log in", class: 'btn btn-primary btn-block'
+

@@ -1,19 +1,19 @@
-.container
-  .signup-content.row.bg-white.p-2
-    .signup-form.col-sm-12.col-md-6
-      h2.text-center.my-3 Sign up
-      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'register-form' }) do |f|
-        = render "devise/shared/error_messages", resource: resource
-        .form-group
-          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email'
-        .form-group
-          = f.password_field :password, autocomplete: "new-password", id: '#password', class: 'form-control', placeholder: 'Password (6 characters minimum)'
-        .form-group
-          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'Password confirmation'
-        .form-group
-          = f.submit "Sign up", class: 'btn btn-primary'
-      .btn-group role='group' aria-label='Basic example'
-    .signup-image.col-sm-12.col-md-6
-      = image_tag('sign-up-here.png', class: 'img-fluid mx-auto d-block')
-      br
-      = render "users/shared/links"
+.main.px-4
+  .container
+    .register-content.row.bg-white
+      .register-form.col-sm-12.col-md-6
+        h2.text-center.mt-3.pt-2 Sign up
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .form-group
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email'
+          .form-group
+            = f.password_field :password, autocomplete: "new-password", id: '#password', class: 'form-control', placeholder: 'Password (6 characters minimum)'
+          .form-group
+            = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'Password confirmation'
+          .form-group
+            = f.submit "Sign up", class: 'btn btn-primary btn-block'
+      .register-image.col-sm-12.col-md-6
+        = image_tag('signup-image.jpg', class: 'img-fluid mx-auto d-block')
+        br
+        = render "users/shared/links"
