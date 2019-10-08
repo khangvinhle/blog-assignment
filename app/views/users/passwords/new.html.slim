@@ -4,7 +4,7 @@
       .new-password-form.col-sm-12.col-md-6
         h2.text-center.mt-3.pt-2 Forgot your password?
         = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-          = render "devise/shared/error_messages", resource: resource
+          = render "users/shared/error_messages", resource: resource
           .form-group
             = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Account email', class: 'form-control'
           .form-group.text-center

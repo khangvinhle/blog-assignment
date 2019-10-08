@@ -1,40 +1,40 @@
 .sessions-new-view {
-    background-color: #f8f8f8;
+  background-color: #f8f8f8;
 
-    .main {
-        background: #f8f8f8;
-        padding: 150px 0;
+  .main {
+    background: #f8f8f8;
+    padding: 150px 0;
 
-        .container {
-            padding-top: 150px;
-            margin-bottom: 150px;
+    .container {
+      padding-top: 150px;
+      margin-bottom: 150px;
 
-            .login-content {
-                box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
-                border-radius: 20px;
-                padding: 75px 0;
+      .login-content {
+        box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+        border-radius: 20px;
+        padding: 75px 0;
 
-                .login-form {
-                    padding-right: 110px;
+        .login-form {
+          padding-right: 110px;
 
-                    @media only screen and (max-width: 991.98px) {
-                        padding: 0 1.5rem !important;
-                    }
+          @media only screen and (max-width: 991.98px) {
+            padding: 0 1.5rem !important;
+          }
 
-                    h2 {
-                        margin-bottom: 33px;
-                        font-size: 36px;
-                    }
+          h2 {
+            margin-bottom: 33px;
+            font-size: 36px;
+          }
 
-                    .form-control {
-                        margin-bottom: 2rem;
-                    }
+          .form-control {
+            margin-bottom: 2rem;
+          }
 
-                    img {
-                        padding: 40px;
-                    }
-                }
-            }
+          img {
+            padding: 40px;
+          }
         }
+      }
     }
+  }
 }

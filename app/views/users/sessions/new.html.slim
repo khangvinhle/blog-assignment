@@ -8,6 +8,7 @@
       .login-form.col-sm-12.col-md-6
         h2.text-center.mt-3.pt-2 Log in
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          = render 'layouts/messages'
           .form-group
             = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email'
           .form-group
