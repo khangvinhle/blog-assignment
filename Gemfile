@@ -31,8 +31,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  # use dotenv to load variables from .env file to ENV variables
-  gem 'dotenv-rails'
 end
 
 group :development do
@@ -60,3 +58,5 @@ gem 'omniauth-facebook'
 
 # send email using Sendgrid
 gem 'sendgrid-ruby'
+
+gem 'figaro'

@@ -15,8 +15,23 @@
                 padding: 75px 0;
 
                 .login-form {
+                    padding-right: 110px;
+
+                    @media only screen and (max-width: 991.98px) {
+                        padding: 0 1.5rem !important;
+                    }
+
                     h2 {
                         margin-bottom: 33px;
+                        font-size: 36px;
+                    }
+
+                    .form-control {
+                        margin-bottom: 2rem;
+                    }
+
+                    img {
+                        padding: 40px;
                     }
                 }
             }

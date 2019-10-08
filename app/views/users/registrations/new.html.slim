@@ -8,11 +8,11 @@
           .form-group
             = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email'
           .form-group
-            = f.password_field :password, autocomplete: "new-password", id: '#password', class: 'form-control', placeholder: 'Password (6 characters minimum)'
+            = f.password_field :password, autocomplete: "new-password", id: '#password', class: 'form-control', placeholder: 'Password'
           .form-group
             = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'Password confirmation'
-          .form-group
-            = f.submit "Sign up", class: 'btn btn-primary btn-block'
+          .form-group.text-center
+            = f.submit "Sign up", class: 'btn btn-primary btn-lg'
       .register-image.col-sm-12.col-md-6
         = image_tag('signup-image.jpg', class: 'img-fluid mx-auto d-block')
         br
