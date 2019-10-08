@@ -16,6 +16,12 @@
         padding: 75px 0;
 
         .register-form {
+          padding-left: 110px;
+
+          @media only screen and (max-width: 991.98px) {
+            padding: 0 1.5rem !important;
+          }
+
           h2 {
             margin-bottom: 33px;
             font-size: 36px;
@@ -24,48 +30,10 @@
           .form-control {
             margin-bottom: 2rem;
           }
-
-          padding-left: 110px;
         }
 
         img {
-          // margin-top: 30px;
           padding: 40px;
-        }
-      }
-    }
-  }
-
-  @media only screen and (max-width: 575px) {
-    .container {
-      .register-content {
-        .register-form {
-          padding-left: 1.5rem !important;
-          padding-right: 1.5rem !important;
-
-        }
-      }
-    }
-  }
-  @media only screen and (max-width: 767.98px) {
-    .container {
-      .register-content {
-        .register-form {
-          padding-left: 1.5rem !important;
-          padding-right: 1.5rem !important;
-
-        }
-      }
-    }
-  }
-
-  @media only screen and (max-width: 991.98px) {
-    .container {
-      .register-content {
-        .register-form {
-          padding-left: 1.5rem !important;
-          padding-right: 1.5rem !important;
-
         }
       }
     }
