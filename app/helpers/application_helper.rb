@@ -7,4 +7,8 @@ module ApplicationHelper
           link_to('Register', new_user_registration_path, class: class_name)
     end
   end
+
+  def render_new_post_link(class_name = nil)
+    link_to('New post', new_post_path, class: class_name) if user_signed_in?
+  end
 end
