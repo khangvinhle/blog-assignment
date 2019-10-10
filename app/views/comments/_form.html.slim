@@ -1,0 +1,8 @@
+.card.my-4
+  h5.card-header Leave a comment:
+  .card-body
+    = form_with model: @comment, url: [@post, @comment], local: true do |f|
+      .form-group
+        = f.text_area :content, placeholder: 'Content', class: 'form-control'
+      .form-group
+        = f.submit class: 'btn btn-primary'

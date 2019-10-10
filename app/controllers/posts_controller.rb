@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!,except: :show
+  before_action :authenticate_user!, except: :show
   before_action :find_post, only: %i[show destroy update edit]
 
   def new
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def show
-
+    @comment = @post.comments.build
   end
 
   def edit

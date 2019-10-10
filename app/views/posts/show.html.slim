@@ -14,6 +14,19 @@
       hr
       p
         = @post.body
+      hr
+      / Comment input
+      = render 'comments/form'
+      / show comments
+      - if @post.comments.exists?
+        - @post.comments.select(&:persisted?).reverse.each do |c|
+          .media.mb-4
+            img.mr-3.rounded-circle src='http://placehold.it/50x50' alt=''
+            .media-body
+              h5.mt-0 = c.user.email
+              p.text-muted On #{c.created_at.localtime}
+              = c.content
+
     / Sidebar widgets column
     .col-sm-4
       h1 this is the sidebar
