@@ -15,6 +15,7 @@
     .col-md-8
       - if @posts.present?
         h1.text-info.my-4 Post list
+
         - @posts.reverse.each do |p|
           .card.mb-4
             img.card-img-top src="http://placehold.it/750x300"
@@ -26,6 +27,8 @@
               | Posted by #{p.user.email} on #{p.created_at.localtime}
       - else
         h2.text-center.my-auto.text-warning.py-5 There are not any posts yet
+
     .col-md-4
       h2 this is the sidebar
+
 = render 'layouts/footer'
