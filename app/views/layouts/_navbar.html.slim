@@ -1,21 +1,22 @@
 nav [class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"]
-  = link_to "OWEN", root_path, class: "navbar-brand"
+  .container.p-0
+    = link_to "OWEN", root_path, class: "navbar-brand"
 
-  button [class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"]
-    span [class="navbar-toggler-icon"]
+    button [class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"]
+      span [class="navbar-toggler-icon"]
 
-  div [class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup"]
-    ul [class="navbar-nav"]
+    div [class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup"]
+      ul [class="navbar-nav"]
 
-      li [class="nav-item"]
-        = link_to "Home", root_path, class: "nav-link"
-        span [class="sr-only"] (current)
+        li [class="nav-item"]
+          = link_to "Home", root_path, class: "nav-link"
+          span [class="sr-only"] (current)
 
-      li [class="nav-item"]
-        = render_new_post_link("nav-link")
+        li [class="nav-item"]
+          = render_new_post_link("nav-link")
 
-      li [class="nav-item dropdown"]
-        = link_to "Account", "#", class: "nav-link dropdown-toggle", id: "navbarDropdownMenuLink", role: "button", data: { toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" }
+        li [class="nav-item dropdown"]
+          = link_to "Account", "#", class: "nav-link dropdown-toggle", id: "navbarDropdownMenuLink", role: "button", data: { toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" }
 
-        .dropdown-menu [aria-labelledby="navbarDropdownMenuLink"]
-          = render_authentication_links("dropdown-item")
+          .dropdown-menu [aria-labelledby="navbarDropdownMenuLink"]
+            = render_authentication_links("dropdown-item")
