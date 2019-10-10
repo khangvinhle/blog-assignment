@@ -1,3 +1,4 @@
+.container
 - flash.each do |key, value|
   - if key == 'notice'
     div [class="alert alert-success fade show text-center"]
@@ -9,5 +10,10 @@
       strong = value
       button [type='button' data-dismiss='alert' class='close' aria-label="close" ]
         span [aria-hidden="true" ] &times;
+- if @posts.present?
+  h2.text-info.text-center Post list:
+  - @posts.each do |p|
+    h3.mt-3.text-center = link_to p.title,post_path(p), class: 'text-dark'
 
-.container
+- else
+  h2.text-center.my-auto.text-warning There are not any posts yet
