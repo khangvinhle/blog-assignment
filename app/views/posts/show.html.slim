@@ -1,9 +1,9 @@
-.container
+.container.pb-3
   = render 'layouts/messages'
-  .row
+  .row.text-wrap
     / Post content column
-    .col-md-8.col-sm-12.col-lg-8
-      h1.mt-4 = @post.title
+    .col-sm-8
+      h1 = @post.title
       p.lead
         | By
         =< @post.user.email
@@ -12,7 +12,8 @@
         | Posted on
         =< @post.created_at.localtime.asctime
       hr
-      p = @post.body
+      p
+        = @post.body
     / Sidebar widgets column
-    .col-md-4.col-sm-12.col-lg-4
+    .col-sm-4
       h1 this is the sidebar
