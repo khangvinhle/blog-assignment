@@ -8,12 +8,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user_id = current_user.id
+    @post.user = current_user
     if @post.save
       flash[:notice] = 'The post has been created'
       redirect_to @post
     else
-      flash[:alert] = 'The post has not been created'
       render 'new'
     end
   end
@@ -22,12 +21,16 @@ class PostsController < ApplicationController
     @comment = @post.comments.build
   end
 
-  def edit
-
+  def edit;
   end
 
   def update
-
+    if @post.update(post_params)
+      flash[:notice] = 'The post has been updated'
+      redirect_to @post
+    else
+      render 'edit'
+    end
   end
 
   def destroy
