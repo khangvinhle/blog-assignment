@@ -17,6 +17,7 @@ html {
   }
 }
 
-@import "users/users_registrations_new.scss";
-@import "users/users_sessions_new.scss";
-@import "users/users_passwords_new.scss";
+@import "users/users_registrations_new";
+@import "users/users_sessions_new";
+@import "users/users_passwords_new";
+@import "home/home";

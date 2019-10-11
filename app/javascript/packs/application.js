@@ -18,7 +18,7 @@ require("jquery")
 
 // bootstrap
 import 'bootstrap/scss/bootstrap.scss'
-import './bootstrap_custom'
+import 'bootstrap/dist/js/bootstrap.min'
 
 // custom files
 import './stylesheets/application.scss'
