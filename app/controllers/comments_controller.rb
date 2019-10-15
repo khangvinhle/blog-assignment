@@ -6,10 +6,9 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
-      flash[:notice] = 'The comment is created'
+      flash[:notice] = 'The comment is created!'
       redirect_to @post
     else
-      flash[:alert] = 'Some thing wrong with your comment'
       render template: 'posts/show'
     end
   end

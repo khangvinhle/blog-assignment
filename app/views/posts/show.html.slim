@@ -1,5 +1,11 @@
 .container.pb-3
-  = render 'layouts/messages'
+  - if @comment.errors.any?
+    - @comment.errors.each do |_field, msg|
+      .alert.alert-danger.alert-dismissible.fade.show role="alert"
+        = msg
+        button [class='close' aria-label="Close" type='button' data-dismiss="alert" ]
+          span [aria-hidden="true" ] &times;
+  / = @comment.errors.messages.inspect
   .row.text-wrap
     / Post content column
     .col-md-8
@@ -13,7 +19,7 @@
         =< @post.created_at.localtime.asctime
       hr
 
-        = simple_format @post.body, class: 'text-justify'
+        = simple_format @post.body, class: 'text-justify text-break'
       hr
       / Comment input
       = render 'comments/form'
@@ -22,9 +28,10 @@
         - @post.comments.select(&:persisted?).reverse.each do |c|
           .media.mb-4
             img.mr-3.rounded-circle src='http://placehold.it/50x50' alt=''
-            .media-body.text-justify
+            .media-body.text-justify.text-break
               h5.mt-0 = c.user.email
-              p.text-muted On #{c.created_at.localtime}
+              p.text-muted
+                | On #{c.created_at.localtime}
               = c.content
 
     / Sidebar column
@@ -59,5 +66,5 @@
               =< link_to 'Share', '#', class: 'btn btn-primary mb-1'
               = link_to 'Star', '#', class: 'btn btn-primary mb-1'
             .col-lg-6
-              = link_to 'Edit this post',edit_post_path(@post), class: 'btn btn-primary mb-1'
-              = link_to 'Delete this post', post_path(@post), class: 'btn btn-danger mb-1', method: :delete, data: { confirm: 'Are you sure you want to delete this post?' }
+              = link_to 'Edit this post',edit_post_path(@post), class: 'btn btn-primary mb-1 btn-block' if policy(@post).edit?
+              = link_to 'Delete this post', post_path(@post), class: 'btn btn-danger mb-1 btn-block', method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } if policy(@post).destroy?

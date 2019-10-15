@@ -1,16 +1,5 @@
 .container.px-5
-  - flash.each do |key, value|
-    - if key == 'notice'
-      div [class="alert alert-success fade show text-center"]
-        strong = value
-        button [type='button' data-dismiss='alert' class='close' aria-label="close" ]
-          span [aria-hidden="true" ] &times;
-    - elsif key == 'alert'
-      div [class="alert alert-danger fade show text-center"]
-        strong = value
-        button [type='button' data-dismiss='alert' class='close' aria-label="close" ]
-          span [aria-hidden="true" ] &times;
-
+  = render 'layouts/messages'
   .row
     .col-md-8
       - if @posts.present?

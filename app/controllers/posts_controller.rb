@@ -4,11 +4,13 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    authorize @post
   end
 
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    authorize @post
     if @post.save
       flash[:notice] = 'The post has been created'
       redirect_to @post
@@ -18,13 +20,16 @@ class PostsController < ApplicationController
   end
 
   def show
+    authorize @post
     @comment = @post.comments.build
   end
 
-  def edit;
+  def edit
+    authorize @post
   end
 
   def update
+    authorize @post
     if @post.update(post_params)
       flash[:notice] = 'The post has been updated'
       redirect_to @post
@@ -34,6 +39,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    authorize @post
     @post.destroy
     flash[:notice] = 'The post has been deleted!'
     redirect_to root_path
