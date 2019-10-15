@@ -60,3 +60,5 @@ gem 'omniauth-facebook'
 gem 'sendgrid-ruby'
 
 gem 'figaro'
+
+gem 'pundit'

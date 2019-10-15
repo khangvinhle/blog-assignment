@@ -7,6 +7,7 @@
           = render "users/shared/error_messages", resource: resource
           .form-group
             = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email'
+            small.form-text.text-muted We'll never share your email with anyone else.
           .form-group
             = f.password_field :password, autocomplete: "new-password", id: '#password', class: 'form-control', placeholder: 'Password'
           .form-group

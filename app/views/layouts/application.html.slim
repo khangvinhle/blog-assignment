@@ -8,6 +8,7 @@ html
     meta name="viewport" content="width=device-width,initial-scale=1"
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    / script src="https://kit.fontawesome.com/1b32ad5942.js" crossorigin="anonymous"
+  / script src="https://kit.fontawesome.com/1b32ad5942.js" crossorigin="anonymous"
   body class="#{controller_name}-#{action_name}-view"
+    = render 'layouts/navbar'
     = yield

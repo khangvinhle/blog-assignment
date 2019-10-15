@@ -1,0 +1,14 @@
+= form_with model: @post, local: true do |f|
+  - if @post.errors.any?
+    - @post.errors.full_messages.each do |msg|
+      .alert.alert-danger.alert-dismissible.fade.show role="alert"
+        = msg
+        button [class='close' aria-label="Close" type='button' data-dismiss="alert" ]
+          span [aria-hidden="true" ] &times;
+
+  .form-group
+    = f.text_field :title, placeholder: 'Post title', class: 'form-control'
+  .form-group
+    = f.text_area :body, placeholder: 'Post content', class: 'form-control'
+  .form-group
+    = f.submit class: 'btn btn-primary btn-block'

@@ -1,19 +1,23 @@
-- flash.each do |key, value|
-  - if key == 'notice'
-    div [class="alert alert-success fade show text-center"]
-      strong = value
-      button [type='button' data-dismiss='alert' class='close' aria-label="close" ]
-        span [aria-hidden="true" ] &times;
-  - elsif key == 'alert'
-    div [class="alert alert-danger fade show text-center"]
-      strong = value
-      button [type='button' data-dismiss='alert' class='close' aria-label="close" ]
-        span [aria-hidden="true" ] &times;
+.container.px-5
+  = render 'layouts/messages'
+  .row
+    .col-md-8
+      - if @posts.present?
+        h1.text-info.my-4 Post list
 
-div [class='main']
-  h1 [class='text-center'] Blog homepage
-  - if user_signed_in?
-    = link_to 'Log out', destroy_user_session_path,method: :delete
-  - else
-    = link_to 'Log in', new_user_session_path
-    = link_to 'Register', new_user_registration_path
+        - @posts.reverse.each do |p|
+          .card.mb-4
+            img.card-img-top src="http://placehold.it/750x300"
+            .card-body
+              h2.card-title = p.title
+              p.card-text.text-truncate = p.body
+              = link_to "Read More",post_path(p), class: 'btn btn-primary'
+            .card-footer.text-muted
+              | Posted by #{p.user.email} on #{p.created_at.localtime}
+      - else
+        h2.text-center.my-auto.text-warning.py-5 There are not any posts yet
+
+    .col-md-4
+      h2 this is the sidebar
+
+= render 'layouts/footer'

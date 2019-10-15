@@ -1,3 +1,23 @@
-@import "users/users_registrations_new.scss";
-@import "users/users_sessions_new.scss";
-@import "users/users_passwords_new.scss";
+html {
+  height: 100%;
+
+  body {
+    min-height: 100%;
+    height: 100%;
+
+
+    nav {
+      margin-bottom: 10px;
+    }
+
+    .container {
+      // the total height of nav element is 58px
+      padding-top: 58px;
+    }
+  }
+}
+
+@import "users/users_registrations_new";
+@import "users/users_sessions_new";
+@import "users/users_passwords_new";
+@import "home/home";
