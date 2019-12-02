@@ -2,7 +2,7 @@
   .container
     .login-content.row.bg-white
       .login-image.col-sm-12.col-md-6
-        = image_tag("signin-image.jpg",class:'img-fluid mx-auto d-block')
+        = image_pack_tag("signin-image.jpg",class:'img-fluid mx-auto d-block')
         br
         = render "users/shared/links"
       .login-form.col-sm-12.col-md-6
@@ -19,4 +19,3 @@
               = f.label :remember_me, class: 'form-check-label'
           .form-group.text-center
             = f.submit "Log in", class: 'btn btn-primary btn-lg'
-
