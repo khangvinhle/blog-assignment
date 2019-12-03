@@ -31,7 +31,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def user_logged_in?
-    @current_user.present?
+    @user.present?
   end
 
   def post_creator?
