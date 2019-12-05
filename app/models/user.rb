@@ -8,6 +8,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[facebook]
   validates :email, uniqueness: true
 
+  # :nocov:
   def self.new_with_session(params, session)
     super.tap do |user|
       if session['devise.facebook_data'].present? && session['devise.facebook_data']['extra']['raw_info'].present?
@@ -15,7 +16,9 @@ class User < ApplicationRecord
       end
     end
   end
+  # :nocov:
 
+  # :nocov:
   def self.from_omniauth(auth)
     user = find_by(email: auth.info.email)
     if user.present?
@@ -30,4 +33,5 @@ class User < ApplicationRecord
     end
     user
   end
+  # :nocov:
 end

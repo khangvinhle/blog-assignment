@@ -1,4 +1,4 @@
-class PostPolicy < ApplicationPolicy
+class PostPolicy
   attr_reader :user, :post
 
   def initialize(user, post)
@@ -6,12 +6,16 @@ class PostPolicy < ApplicationPolicy
     @post = post
   end
 
+  def index?
+    true
+  end
+
   def show?
     true
   end
 
   def create?
-    true if user_logged_in?
+    user_logged_in?
   end
 
   def new?
@@ -19,7 +23,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def update?
-    true if user_logged_in? && (post_creator? || admin?)
+    user_logged_in? && (post_creator? || admin?)
   end
 
   def edit?
@@ -27,7 +31,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def destroy?
-    true if user_logged_in? && (post_creator? || admin?)
+    user_logged_in? && (post_creator? || admin?)
   end
 
   def user_logged_in?
@@ -35,7 +39,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def post_creator?
-    true if @post.user == @user
+    @post.user == @user
   end
 
   def admin?
@@ -54,7 +58,7 @@ class PostPolicy < ApplicationPolicy
       if user.admin?
         scope.all
       else
-        scope.where(user: current_user)
+        scope.where(user: user)
       end
     end
   end

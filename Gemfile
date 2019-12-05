@@ -47,10 +47,13 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # use rubocop to enforce Rails best practices
   gem 'rubocop-rails'
+  gem 'pry-rails'
 end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

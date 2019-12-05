@@ -1,4 +1,12 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'simplecov'
+SimpleCov.start 'rails' do
+  add_filter 'app/controllers/users/omniauth_callbacks_controller'
+  add_filter 'app/controllers/users/passwords_controller'
+  add_filter 'app/controllers/users/registrations_controller'
+  add_filter 'app/controllers/users/sessions_controller'
+end
+
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 
@@ -24,6 +32,8 @@ require 'rspec/rails'
 #
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 require 'pundit/rspec'
+require 'devise'
+
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 begin

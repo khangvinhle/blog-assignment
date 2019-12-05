@@ -15,7 +15,7 @@ class PostsController < ApplicationController
       flash[:notice] = 'The post has been created'
       redirect_to @post
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
       flash[:notice] = 'The post has been updated'
       redirect_to @post
     else
-      render 'edit'
+      render :edit
     end
   end
 
