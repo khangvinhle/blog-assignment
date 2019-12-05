@@ -41,17 +41,19 @@ RSpec.describe PostsController, type: :controller do
 
   describe '#show' do
     login_user
+
     let!(:usr_post) { create(:post) }
 
     it 'show post from users' do
       get :show, params: { id: usr_post }
       expect(response).to render_template(:show)
-      expect(assigns(:comment)) == usr_post.comments.build
+      expect(assigns(:comment)).to be_an_instance_of(Comment)
     end
   end
 
   describe '#edit' do
     login_user
+
     let(:usr_post) { create(:post, user: subject.current_user) }
 
     it 'render edit template' do
@@ -62,6 +64,7 @@ RSpec.describe PostsController, type: :controller do
 
   describe '#update' do
     login_user
+
     let(:usr_post) { create(:post, user: subject.current_user) }
 
     def do_request
@@ -70,6 +73,7 @@ RSpec.describe PostsController, type: :controller do
 
     context 'when params are valid' do
       let(:post_attributes) { attributes_for(:post, title: 'changed') }
+
       it 'update post successfully' do
         do_request
         expect { usr_post.reload }.to change(usr_post, :title)
@@ -78,6 +82,7 @@ RSpec.describe PostsController, type: :controller do
 
     context 'when params are invalid' do
       let(:post_attributes) { attributes_for(:post, title: nil) }
+
       it 'update post unsuccessfully' do
         expect { do_request }.not_to change(usr_post, :title)
         expect(response).to render_template(:edit)
@@ -87,9 +92,10 @@ RSpec.describe PostsController, type: :controller do
 
   describe '#destroy' do
     login_user
+
     let!(:post) { create(:post, user: subject.current_user) }
 
-    it 'delete a post' do
+    it 'delete a post successfully' do
       expect { delete :destroy, params: { id: post } }.to change(Post, :count).by(-1)
       expect(flash[:notice]).to eq('The post has been deleted!')
       expect(response).to redirect_to root_path

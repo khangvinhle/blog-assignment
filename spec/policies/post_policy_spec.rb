@@ -12,6 +12,7 @@ describe PostPolicy do
 
     context 'client user' do
       let(:user) { random_client_usr }
+
       it 'allows a limitted records' do
         expect(scope).to contain_exactly(random_post)
       end
@@ -19,6 +20,7 @@ describe PostPolicy do
 
     context 'admin user' do
       let(:user) { admin_usr }
+
       it 'allows to all posts' do
         expect(scope).to contain_exactly(random_post, post)
       end

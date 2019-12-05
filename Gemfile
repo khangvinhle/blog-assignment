@@ -47,7 +47,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # use rubocop to enforce Rails best practices
   gem 'rubocop-rails'
-  gem 'pry-rails'
 end
 
 group :test do
@@ -55,6 +54,8 @@ group :test do
   gem 'rails-controller-testing'
   gem 'simplecov', require: false
 end
+
+gem 'pry-rails'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
@@ -75,4 +76,4 @@ gem 'figaro'
 
 gem 'pundit'
 gem 'faker'
-gem "factory_bot_rails"
+gem 'factory_bot_rails'

@@ -8,8 +8,8 @@
           .form-group
             = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Account email', class: 'form-control'
           .form-group.text-center
-            = f.submit "Reset",class:'btn btn-primary btn-lg'
+            = f.submit "Reset", class: 'btn btn-primary btn-lg'
       .new-password-image.col-sm-12.col-md-6
-        = image_pack_tag('forgot-password.png',class:'img-fluid d-block mx-auto')
+        = image_pack_tag('forgot-password.png', class: 'img-fluid d-block mx-auto')
         br
         = render "users/shared/links"
